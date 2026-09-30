@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatriceMaui.MainPage"
+             BackgroundColor="#2D2D2D">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20"
+            VerticalOptions="Fill">
+
+            <!-- Border pour l'écran d'affichage -->
+            <Border
+                Stroke="#404040"
+                StrokeThickness="2"
+                BackgroundColor="#1A1A1A"
+                Padding="20"
+                StrokeShape="RoundRectangle 15">
+                <VerticalStackLayout
+                    Spacing="10"
+                    HorizontalOptions="End">
+                    <Label
+                        x:Name="OperationLabel"
+                        Text=""
+                        FontSize="24"
+                        TextColor="#888888"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"
+                        LineBreakMode="TailTruncation" />
+                    <Label
+                        x:Name="ResultLabel"
+                        Text="0"
+                        FontSize="48"
+                        TextColor="#FFFFFF"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"
+                        LineBreakMode="TailTruncation" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- HorizontalStackLayout pour les informations optionnelles -->
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Spacing="10">
+                <Label
+                    Text="Calculatrice MAUI"
+                    FontSize="14"
+                    TextColor="#666666" />
+            </HorizontalStackLayout>
+
+            <!-- Grid pour le clavier de la calculatrice -->
+            <Grid
+                RowDefinitions="*,*,*,*,*"
+                ColumnDefinitions="*,*,*,*"
+                RowSpacing="10"
+                ColumnSpacing="10"
+                VerticalOptions="Fill">
+
+                <!-- Ligne 1: AC, ⌫, %, ÷ -->
+                <Button
+                    Text="AC"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="24"
+                    BackgroundColor="#FF6B6B"
+                    TextColor="#FFFFFF"
+                    Clicked="OnClearClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="⌫"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="24"
+                    BackgroundColor="#4ECDC4"
+                    TextColor="#FFFFFF"
+                    Clicked="OnBackspaceClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="%"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    FontSize="24"
+                    BackgroundColor="#4ECDC4"
+                    TextColor="#FFFFFF"
+                    Clicked="OnPercentClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="÷"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    FontSize="24"
+                    BackgroundColor="#FFD93D"
+                    TextColor="#1A1A1A"
+                    Clicked="OnOperatorClicked"
+                    CornerRadius="10" />
+
+                <!-- Ligne 2: 7, 8, 9, × -->
+                <Button
+                    Text="7"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="8"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="9"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="×"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    FontSize="24"
+                    BackgroundColor="#FFD93D"
+                    TextColor="#1A1A1A"
+                    Clicked="OnOperatorClicked"
+                    CornerRadius="10" />
+
+                <!-- Ligne 3: 4, 5, 6, − -->
+                <Button
+                    Text="4"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="5"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="6"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="−"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    FontSize="24"
+                    BackgroundColor="#FFD93D"
+                    TextColor="#1A1A1A"
+                    Clicked="OnOperatorClicked"
+                    CornerRadius="10" />
+
+                <!-- Ligne 4: 1, 2, 3, + -->
+                <Button
+                    Text="1"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="2"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="3"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="+"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    FontSize="24"
+                    BackgroundColor="#FFD93D"
+                    TextColor="#1A1A1A"
+                    Clicked="OnOperatorClicked"
+                    CornerRadius="10" />
+
+                <!-- Ligne 5: ±, 0, ., = -->
+                <Button
+                    Text="±"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnToggleSignClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="0"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnNumberClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="."
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    FontSize="24"
+                    BackgroundColor="#404040"
+                    TextColor="#FFFFFF"
+                    Clicked="OnDecimalClicked"
+                    CornerRadius="10" />
+                <Button
+                    Text="="
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    FontSize="24"
+                    BackgroundColor="#6BCB77"
+                    TextColor="#FFFFFF"
+                    Clicked="OnEqualsClicked"
+                    CornerRadius="10" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
